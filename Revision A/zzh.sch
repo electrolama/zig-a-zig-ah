@@ -76,7 +76,7 @@
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="59" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="99" name="SpiceOrder" color="7" fill="1" visible="no" active="yes"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
@@ -285,9 +285,9 @@ DIN A4, landscape with location and doc. field</description>
 <smd name="46" x="-1.75" y="3.45" dx="0.85" dy="0.3" layer="1" rot="R90"/>
 <smd name="47" x="-2.25" y="3.45" dx="0.85" dy="0.3" layer="1" rot="R90"/>
 <smd name="48" x="-2.75" y="3.45" dx="0.85" dy="0.3" layer="1" rot="R90"/>
-<smd name="49" x="0" y="0" dx="5.25" dy="5.25" layer="1" rot="R90"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<smd name="49" x="0" y="0" dx="5.25" dy="5.25" layer="1" roundness="3" rot="R90" cream="no"/>
+<text x="0" y="5.08" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="-5.08" size="1.27" layer="27" align="center">&gt;VALUE</text>
 <wire x1="-4.125" y1="4.125" x2="4.125" y2="4.125" width="0.05" layer="51"/>
 <wire x1="4.125" y1="4.125" x2="4.125" y2="-4.125" width="0.05" layer="51"/>
 <wire x1="4.125" y1="-4.125" x2="-4.125" y2="-4.125" width="0.05" layer="51"/>
@@ -298,6 +298,22 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="-3.5" y1="-3.5" x2="-3.5" y2="3.5" width="0.1" layer="51"/>
 <wire x1="-3.5" y1="3" x2="-3" y2="3.5" width="0.1" layer="51"/>
 <circle x="-3.875" y="3.5" radius="0.125" width="0.25" layer="25"/>
+<rectangle x1="-2.5" y1="1.5" x2="-1.5" y2="2.5" layer="31"/>
+<rectangle x1="-1.175" y1="1.5" x2="-0.175" y2="2.5" layer="31"/>
+<rectangle x1="0.175" y1="1.5" x2="1.175" y2="2.5" layer="31"/>
+<rectangle x1="1.5" y1="1.5" x2="2.5" y2="2.5" layer="31"/>
+<rectangle x1="-2.5" y1="0.175" x2="-1.5" y2="1.175" layer="31"/>
+<rectangle x1="-2.5" y1="-1.175" x2="-1.5" y2="-0.175" layer="31"/>
+<rectangle x1="-2.5" y1="-2.5" x2="-1.5" y2="-1.5" layer="31"/>
+<rectangle x1="1.5" y1="-2.5" x2="2.5" y2="-1.5" layer="31"/>
+<rectangle x1="0.175" y1="-2.5" x2="1.175" y2="-1.5" layer="31"/>
+<rectangle x1="-1.175" y1="-2.5" x2="-0.175" y2="-1.5" layer="31"/>
+<rectangle x1="-1.175" y1="-1.175" x2="-0.175" y2="-0.175" layer="31"/>
+<rectangle x1="-1.175" y1="0.175" x2="-0.175" y2="1.175" layer="31"/>
+<rectangle x1="0.175" y1="0.175" x2="1.175" y2="1.175" layer="31"/>
+<rectangle x1="1.5" y1="0.175" x2="2.5" y2="1.175" layer="31"/>
+<rectangle x1="0.175" y1="-1.175" x2="1.175" y2="-0.175" layer="31"/>
+<rectangle x1="1.5" y1="-1.175" x2="2.5" y2="-0.175" layer="31"/>
 </package>
 <package name="_PKG_MSOP10_TI-DGS10">
 <smd name="1" x="-2.0955" y="1" dx="1.5748" dy="0.2794" layer="1"/>
@@ -2109,6 +2125,9 @@ ref SMA: &lt;a href="https://cpc.farnell.com/rf-solutions/con-sma-edge-s/sma-fem
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="MOD1" library="ok-modules-dev" deviceset="ZZH_MODULE" device=""/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R1" library="ok-discretes-dev" deviceset="RES" device="-0402"/>
+<part name="L4" library="ok-discretes-dev" deviceset="INDUCTOR" device="-0402"/>
+<part name="GND31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2125,21 +2144,36 @@ ref SMA: &lt;a href="https://cpc.farnell.com/rf-solutions/con-sma-edge-s/sma-fem
 near pin 33</text>
 <text x="165.1" y="15.24" size="2.54" layer="94">zig-a-zig-ah!!
 http://electrolama.com/p/zzh</text>
-<text x="217.17" y="20.32" size="2.54" layer="94">Revision A DRAFT 1</text>
+<text x="217.17" y="20.32" size="2.54" layer="94">Revision A DRAFT 2</text>
 <text x="27.94" y="109.22" size="1.778" layer="91">CC_RXD</text>
 <text x="27.94" y="106.68" size="1.778" layer="91">CC_TXD</text>
 <text x="182.88" y="167.64" size="2.794" layer="91">SWD Debug</text>
 <text x="182.88" y="60.96" size="2.794" layer="91">3V3 LDO</text>
 <text x="12.7" y="50.8" size="2.794" layer="91">USB Serial</text>
-<text x="12.7" y="165.1" size="2.794" layer="91">CC2652R or CC2652P</text>
+<text x="12.7" y="165.1" size="2.794" layer="91">CC2652R or CC2652RB</text>
 <text x="127" y="139.7" size="2.794" layer="91">Balun &amp; Pi Filter for 
 SMA Antenna</text>
 <text x="12.7" y="63.5" size="2.794" layer="91">BSL Trigger button and GP LED
-TODO: Double check BSL and LED pins</text>
-<text x="101.6" y="162.56" size="7.62" layer="91">DRAFT 1</text>
+TODO: Double check default BSL pin/pd</text>
+<text x="101.6" y="162.56" size="7.62" layer="91">DRAFT 2</text>
 <text x="7.62" y="12.7" size="2.794" layer="91">Reference Designs:</text>
 <text x="10.16" y="5.08" size="2.286" layer="91">http://www.ti.com/tool/LAUNCHXL-CC26X2R1
 http://www.ti.com/tool/TIDA-010012</text>
+<wire x1="5.08" y1="40.64" x2="15.24" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="15.24" y1="40.64" x2="15.24" y2="25.4" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="15.24" y1="25.4" x2="5.08" y2="25.4" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="5.08" y1="25.4" x2="5.08" y2="40.64" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="38.1" y1="86.36" x2="38.1" y2="71.12" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="38.1" y1="71.12" x2="48.26" y2="71.12" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="48.26" y1="71.12" x2="48.26" y2="86.36" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="48.26" y1="86.36" x2="38.1" y2="86.36" width="0.1524" layer="97" style="shortdash"/>
+<text x="38.1" y="88.9" size="1.778" layer="97">Draft 2</text>
+<text x="5.08" y="43.18" size="1.778" layer="97">Draft 2</text>
+<wire x1="30.48" y1="170.18" x2="30.48" y2="162.56" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="30.48" y1="162.56" x2="53.34" y2="162.56" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="53.34" y1="162.56" x2="53.34" y2="170.18" width="0.1524" layer="97" style="shortdash"/>
+<wire x1="53.34" y1="170.18" x2="30.48" y2="170.18" width="0.1524" layer="97" style="shortdash"/>
+<text x="30.48" y="172.72" size="1.778" layer="97">Draft 2</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes">
@@ -2300,8 +2334,8 @@ http://www.ti.com/tool/TIDA-010012</text>
 <instance part="GND19" gate="1" x="22.86" y="134.62" smashed="yes">
 <attribute name="VALUE" x="20.32" y="132.08" size="1.778" layer="96"/>
 </instance>
-<instance part="GND21" gate="1" x="10.16" y="25.4" smashed="yes">
-<attribute name="VALUE" x="7.62" y="22.86" size="1.778" layer="96"/>
+<instance part="GND21" gate="1" x="10.16" y="22.86" smashed="yes">
+<attribute name="VALUE" x="7.62" y="20.32" size="1.778" layer="96"/>
 </instance>
 <instance part="GND22" gate="1" x="58.42" y="25.4" smashed="yes">
 <attribute name="VALUE" x="55.88" y="22.86" size="1.778" layer="96"/>
@@ -2391,7 +2425,7 @@ http://www.ti.com/tool/TIDA-010012</text>
 <attribute name="VALUE" x="194.183" y="43.6626" size="1.778" layer="96"/>
 </instance>
 <instance part="SW1" gate="G$1" x="33.02" y="81.28" smashed="yes">
-<attribute name="NAME" x="36.195" y="84.455" size="1.27" layer="95"/>
+<attribute name="NAME" x="28.575" y="76.835" size="1.27" layer="95"/>
 <attribute name="VALUE" x="36.195" y="83.185" size="1.27" layer="96"/>
 </instance>
 <instance part="GND26" gate="1" x="45.72" y="116.84" smashed="yes">
@@ -2407,6 +2441,17 @@ http://www.ti.com/tool/TIDA-010012</text>
 </instance>
 <instance part="GND30" gate="1" x="111.76" y="76.2" smashed="yes">
 <attribute name="VALUE" x="106.68" y="73.66" size="1.778" layer="96"/>
+</instance>
+<instance part="R1" gate="G$1" x="43.18" y="78.74" smashed="yes" rot="R90">
+<attribute name="NAME" x="45.72" y="78.74" size="1.778" layer="95"/>
+<attribute name="VALUE" x="46.482" y="74.93" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="L4" gate="G$1" x="10.16" y="30.48" smashed="yes" rot="R270">
+<attribute name="NAME" x="12.7" y="29.21" size="1.778" layer="95"/>
+<attribute name="VALUE" x="7.62" y="33.02" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND31" gate="1" x="43.18" y="73.66" smashed="yes">
+<attribute name="VALUE" x="40.64" y="71.12" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -2739,16 +2784,6 @@ http://www.ti.com/tool/TIDA-010012</text>
 <wire x1="22.86" y1="96.52" x2="22.86" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND21" gate="1" pin="GND"/>
-<wire x1="10.16" y1="27.94" x2="10.16" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="35.56" x2="10.16" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="38.1" x2="12.7" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="35.56" x2="10.16" y2="35.56" width="0.1524" layer="91"/>
-<junction x="10.16" y="35.56"/>
-<pinref part="MOD1" gate="G$1" pin="USB_SHIELD@1"/>
-<pinref part="MOD1" gate="G$1" pin="USB_SHIELD@2"/>
-</segment>
-<segment>
 <wire x1="55.88" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="GND22" gate="1" pin="GND"/>
 <wire x1="58.42" y1="30.48" x2="58.42" y2="27.94" width="0.1524" layer="91"/>
@@ -2794,6 +2829,15 @@ http://www.ti.com/tool/TIDA-010012</text>
 <pinref part="MOD1" gate="G$2" pin="SMA_SHIELD@4"/>
 <wire x1="114.3" y1="81.28" x2="111.76" y2="81.28" width="0.1524" layer="91"/>
 <junction x="111.76" y="81.28"/>
+</segment>
+<segment>
+<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="10.16" y1="25.4" x2="10.16" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="L4" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<pinref part="GND31" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="DCOUPL" class="0">
@@ -2916,12 +2960,15 @@ http://www.ti.com/tool/TIDA-010012</text>
 <net name="BSL" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="DIO_13"/>
-<wire x1="38.1" y1="81.28" x2="50.8" y2="81.28" width="0.1524" layer="91"/>
-<label x="43.18" y="81.28" size="1.778" layer="95"/>
+<wire x1="38.1" y1="81.28" x2="43.18" y2="81.28" width="0.1524" layer="91"/>
+<label x="45.72" y="81.28" size="1.778" layer="95"/>
 <pinref part="SW1" gate="G$1" pin="2_1"/>
 <pinref part="SW1" gate="G$1" pin="2_2"/>
+<wire x1="43.18" y1="81.28" x2="50.8" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="78.74" x2="38.1" y2="81.28" width="0.1524" layer="91"/>
 <junction x="38.1" y="81.28"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<junction x="43.18" y="81.28"/>
 </segment>
 </net>
 <net name="LED" class="0">
@@ -2989,6 +3036,18 @@ http://www.ti.com/tool/TIDA-010012</text>
 <pinref part="U1" gate="A" pin="UD+"/>
 <wire x1="106.68" y1="35.56" x2="101.6" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="35.56" x2="101.6" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="MOD1" gate="G$1" pin="USB_SHIELD@1"/>
+<wire x1="12.7" y1="38.1" x2="10.16" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="38.1" x2="10.16" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="MOD1" gate="G$1" pin="USB_SHIELD@2"/>
+<wire x1="10.16" y1="35.56" x2="10.16" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="35.56" x2="10.16" y2="35.56" width="0.1524" layer="91"/>
+<junction x="10.16" y="35.56"/>
+<pinref part="L4" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
